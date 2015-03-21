@@ -1,0 +1,1 @@
+MusicGraph.api_key = ENV['MUSIC_GRAPH_API']

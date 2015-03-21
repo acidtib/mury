@@ -15,4 +15,9 @@
 #
 
 class Artist < ActiveRecord::Base
+
+  def self.search_by_name(name)
+    where("name ilike ?", "%#{name}%")
+  end
+
 end

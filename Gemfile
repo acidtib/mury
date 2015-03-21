@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'httparty'
+gem 'musicgraph'
 
 group :development, :test do
   gem 'byebug'

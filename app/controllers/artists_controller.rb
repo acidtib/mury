@@ -1,6 +1,27 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
+  def search
+    query = params['q']
+    ask = Artist.search_by_name(query)
+    
+    if ask.blank?
+      get = MusicGraph::Artist.search(params['q']).first
+      save = Artist.create(
+        name: get.name,
+        graph_id: get.id,
+        ref_id: get.artist_ref_id,
+        decade: get.decade,
+        gender: get.gender,
+        country_of_origin: get.country_of_origin,
+        main_genre: get.main_genre
+      )
+      @artist = save
+    else
+      @artist = ask
+    end
+  end
+
   # GET /artists
   # GET /artists.json
   def index
