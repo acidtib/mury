@@ -6,6 +6,13 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+#
+# => This meeds to be fixed
+#
+if Rails.env.development?
+  Dotenv.load(File.expand_path("../../.env.#{Rails.env}", __FILE__))
+end
+
 module Wildlake
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
