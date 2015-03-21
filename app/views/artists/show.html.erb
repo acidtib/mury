@@ -37,3 +37,15 @@
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
+
+<hr>
+<% @albums.each do |album| %>
+  <%= album['title'] %><br>
+  <%= album['release_year'] %><br>
+  <%= album['performer_name'] %><br>
+  <%= album['number_of_tracks'] %><br>
+
+  <%= image_tag album_artwork(album['performer_name'], album['title']), style: "width: 200px; height: 200px; background: teal;" %>
+  <hr>
+<% end %>
+

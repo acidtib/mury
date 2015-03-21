@@ -16,9 +16,9 @@ class ArtistsController < ApplicationController
         country_of_origin: get.country_of_origin,
         main_genre: get.main_genre
       )
-      @artist = save
+      redirect_to artist_path(save.id)
     else
-      @artist = ask
+      redirect_to artist_path(ask.id)
     end
   end
 
@@ -31,6 +31,8 @@ class ArtistsController < ApplicationController
   # GET /artists/1
   # GET /artists/1.json
   def show
+    @graph = HTTParty.get("http://api.musicgraph.com/api/v2/artist/#{@artist.graph_id}/albums?api_key=#{ENV['MUSIC_GRAPH_API']}")
+    @albums = JSON.parse(@graph.body)["data"]
   end
 
   # GET /artists/new
