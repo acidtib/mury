@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Graph:</strong>
+  <%= @artist.graph_id %>
+</p>
+
+<p>
+  <strong>Ref:</strong>
+  <%= @artist.ref_id %>
+</p>
+
+<p>
+  <strong>Decade:</strong>
+  <%= @artist.decade %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @artist.gender %>
+</p>
+
+<p>
+  <strong>Country of origin:</strong>
+  <%= @artist.country_of_origin %>
+</p>
+
+<p>
+  <strong>Main genre:</strong>
+  <%= @artist.main_genre %>
+</p>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
